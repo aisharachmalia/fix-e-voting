@@ -96,7 +96,7 @@
                         <div class="container">
                             <div class="row justify-content-end">
                                 <div class="col-lg-8 text-end">
-                                    <p class="fs-4 text-white">Selamat Datang Di E-Voting Ketos</p>
+                                    <p class="fs-4 text-white">Selamat Datang Di Web E-Voting Ketos</p>
                                     <h1 class="display-1 text-white mb-5 animated slideInRight">E-Voting Ketos</h1>
                                     <a href="{{url('votingpage')}}" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInLeft">Klik disini untuk memberi vote</a>
                                 </div>
