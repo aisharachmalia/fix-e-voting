@@ -1,47 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Tabel Kandidat</title>
-    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
+@section('styles')
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+@endsection
 
-    <!-- Fonts and icons -->
-    <script src="{{ asset('backend/assets/js/plugin/webfont/webfont.min.js') }}"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ["Public Sans:300,400,500,600,700"]
-            },
-            custom: {
-                families: [
-                    "Font Awesome 5 Solid",
-                    "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands",
-                    "simple-line-icons",
-                ],
-                urls: ["{{ asset('backend/assets/css/fonts.min.css') }}"],
-            },
-            active: function() {
-                sessionStorage.fonts = true;
-            },
-        });
-    </script>
+@section('content')
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/plugins.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/kaiadmin.min.css') }}" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
-</head>
 
-<body>
-    <div class="wrapper">
+    {{-- <div class="wrapper">
         <!-- Sidebar -->
-        @include('include.backend.sidebar')
+
         <!-- End Sidebar -->
 
         <div class="main-panel">
@@ -68,7 +37,7 @@
                     <!-- End Logo Header -->
                 </div>
                 <!-- Navbar Header -->
-                @include('include.backend.header')
+
                 <!-- End Navbar -->
             </div>
 
@@ -118,9 +87,9 @@
                                     <div class="table-responsive">
                                         <table id="basic-datatables" class="display table table-striped table-hover">
                                             <thead>
-                                                <tr>  
+                                                <tr>
                                                     <th>#</th>
-                                                    <th>No. Urut</th>  
+                                                    <th>No. Urut</th>
                                                     <th>Nama Ketua</th>
                                                     <th>Nama Wakil</th>
                                                     <th>Kelas</th>
@@ -171,59 +140,70 @@
             </div>
 
 
-            @include('include.backend.footer')
+
         </div>
 
-    </div>
+    </div> --}}
     <!--   Core JS Files   -->
-    <script src="{{ asset('backend/assets/js/core/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/core/bootstrap.min.js') }}"></script>
+    <div class="card mt-5">
+        <div class="card-header">
+            <div class="float-start">
+                <h5>Kandidat</h5>
+            </div>
+            <div class="float-end">
+                <a href="{{ route('kandidat.create') }}" class="btn btn-sm btn-primary">Add</a>
+            </div>
+        </div>
 
-    <!-- jQuery Scrollbar -->
-    <script src="{{ asset('backend/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
-    <!-- Datatables -->
-    <script src="{{ asset('backend/assets/js/plugin/datatables/datatables.min.js') }}"></script>
-    <!-- Kaiadmin JS -->
-    <script src="{{ asset('backend/assets/js/kaiadmin.min.js') }}"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="{{ asset('backend/assets/js/setting-demo2.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-                    $("#basic-datatables").DataTable({});
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table" id="example">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>No. Urut</th>
+                            <th>Nama Ketua</th>
+                            <th>Nama Wakil</th>
+                            <th>Kelas</th>
+                            <th>Tahun_ajaran</th>
+                            <th>Aksi</th>
 
-                    $("#multi-filter-select").DataTable({
-                        pageLength: 5,
-                        initComplete: function() {
-                            this.api()
-                                .columns()
-                                .every(function() {
-                                    var column = this;
-                                    var select = $(
-                                            '<select class="form-select"><option value=""></option></select>'
-                                        )
-                                        .appendTo($(column.footer()).empty())
-                                        .on("change", function() {
-                                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                                            column
-                                                .search(val ? "^" + val + "$" : "", true, false)
-                                                .draw();
-                                        });
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @php $no = 1; @endphp
+                        @foreach ($kandidat as $data)
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $data->no_urut }}</td>
+                            <td>{{ $data->nama_ketua }}</td>
+                            <td>{{ $data->nama_wakil }}</td>
+                            <td>{{ $data->kelas }}</td>
+                            {{-- <td>{{ $data->jurusan }}</td> --}}
+                            <td>{{ $data->tahun_ajaran }}</td>
+                            </td>
+                            <form action="{{ route('kandidat.destroy', $data->id) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <td class="d-flex align-items-start ">
+                                    <a href="{{ route('kandidat.edit', $data->id) }}"
+                                        class="btn btn-success">Ubah</a>
+                                    <a href="{{ route('kandidat.show', $data->id) }}"
+                                        class="btn btn-warning" style="margin-left: 5px">Lihat</a>
+                                    <button type="submit" class="btn btn-danger" style="margin-left: 5px"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')">
+                                        Hapus
+                                    </button>
+                                </td>
+                            </form>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-                                    column
-                                        .data()
-                                        .unique()
-                                        .sort()
-                                        .each(function(d, j) {
-                                            select.append(
-                                                '<option value="' + d + '">' + d + "</option>"
-                                            );
-                                        });
-                                });
-                        },
-                    });
-    </script>
-</body>
-
-</html>
+@endsection

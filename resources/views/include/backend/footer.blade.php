@@ -3,11 +3,11 @@
             <nav class="pull-left">
             </nav>
             <div class="copyright">
-              Copyright 2024© 
-              Dibuat oleh Ksatria Faikar Nasywaan
+              Copyright 2024©
+              Dibuat oleh Aisha RH
             </div>
             <div>
-              Anggota dari
+              <p>@copyright</p>
               <a target="_blank">Kelompok 14</a>.
             </div>
           </div>

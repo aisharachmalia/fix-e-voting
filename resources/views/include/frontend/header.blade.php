@@ -3,7 +3,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="{{ url('/') }}" class="logo">
-                <h1 class="text-white">E-Pilketos</h1>
+                <h1 class="text-white">E-Voting Ketos</h1>
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -22,15 +22,16 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="{{ route('voter') }}">
+                {{-- <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="{{url('votingpage')}}">
                         <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="#"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
                         Logout
                     </a>
 

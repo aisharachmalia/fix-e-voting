@@ -50,7 +50,7 @@ class PemilihController extends Controller
         $pemilih->nama = $request->nama;
         $pemilih->nis = $request->nis;
         $pemilih->kelas = $request->kelas;
-        $pemilih->jurusan = $request->jurusan;
+        // $pemilih->jurusan = $request->jurusan;
         $pemilih->password = Hash::make($request->password);
         $pemilih->status = $request->status;
         $pemilih->save();
@@ -96,7 +96,7 @@ class PemilihController extends Controller
         $pemilih->nama = $request->nama;
         $pemilih->nis = $request->nis;
         $pemilih->kelas = $request->kelas;
-        $pemilih->jurusan = $request->jurusan;
+        // $pemilih->jurusan = $request->jurusan;
         if ($request->password) {
             $pemilih->password = Hash::make($request->password);
         }

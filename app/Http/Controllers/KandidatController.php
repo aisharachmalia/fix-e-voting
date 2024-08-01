@@ -54,7 +54,7 @@ class KandidatController extends Controller
         $kandidat->kelas = $request->kelas;
         $kandidat->visi = $request->visi;
         $kandidat->misi = $request->misi;
-        $kandidat->jurusan = $request->jurusan;
+        // $kandidat->jurusan = $request->jurusan;
         $kandidat->tahun_ajaran = $request->tahun_ajaran;
         $kandidat->foto = $request->foto;
 
@@ -107,7 +107,7 @@ class KandidatController extends Controller
             'nama_wakil' => ['required', 'string', 'max:255'],
             'visi' => ['required', 'string'],
             'misi' => ['required', 'string'],
-            'jurusan' => ['required', 'string', 'max:255'],
+            // 'jurusan' => ['required', 'string', 'max:255'],
             'tahun_ajaran' => ['required', 'string', 'max:255'],
             // 'foto' => ['required', 'string']
         ]);
@@ -115,15 +115,15 @@ class KandidatController extends Controller
         $kandidat = Kandidat::findOrFail($id);
         $kandidat->no_urut = $request->no_urut;
         $kandidat->nama_ketua = $request->nama_ketua;
-        $kandidat->nama_wakil = $request->nama_wakil;
+        // $kandidat->nama_wakil = $request->nama_wakil;
         $kandidat->kelas = $request->kelas;
         $kandidat->visi = $request->visi;
         $kandidat->misi = $request->misi;
-        $kandidat->jurusan = $request->jurusan;
+        // $kandidat->jurusan = $request->jurusan;
         $kandidat->tahun_ajaran = $request->tahun_ajaran;
 
         //upload image
-        if ($request->hasFile('foto')) { 
+        if ($request->hasFile('foto')) {
             $kandidat -> deleteImage();
             $img = $request->file('foto');
             $name = rand(1000, 9999) . $img->getClientOriginalName();

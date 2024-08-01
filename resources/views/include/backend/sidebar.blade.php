@@ -1,4 +1,4 @@
-<div class="sidebar" data-background-color="dark">
+{{-- <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
@@ -31,7 +31,7 @@
                 >
                   <i class="fas fa-home"></i>
 
-                  <p>Dashboard</p>  
+                  <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-section">
@@ -69,4 +69,43 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> --}}
+      <nav class="nxl-navigation">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="/admin" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    {{-- <img src="assets/images/logo-full.png" alt="" class="logo logo-lg" /> --}}
+                    <h3 class="logo logo-lg">E-VOTING KETOS</h3>
+
+                    <img src="assets/images/smkassalaam.png" alt="" class="logo logo-sm" style="max-width: 80px" />
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="nxl-navbar">
+
+
+                    <li class="nxl-item nxl-hasmenu">
+                        <a href="javascript:void(0);" class="nxl-link">
+                            <span class="nxl-micon"><i class="feather-layout"></i></span>
+                            <span class="nxl-mtext">Tables</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        </a>
+                        <ul class="nxl-submenu">
+                            <li class="nxl-item"> <a class="nxl-link" href="{{route('kandidat.index')}}">
+                                <span class="sub-item">Kandidat</span>
+                              </a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="{{route('pemilih.index')}}">
+                                <span class="sub-item">Pemilih</span>
+                              </a></li>
+                            <li class="nxl-item"><a class="nxl-link" href="{{route('suara.index')}}">
+                                <span class="sub-item">Suara</span>
+                              </a></li>
+                            <li class="nxl-item"></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>

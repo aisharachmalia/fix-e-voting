@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->text('visi');
             $table->text('misi');
-            $table->string('jurusan');
+            // $table->string('jurusan');
             $table->string('tahun_ajaran');
             $table->string('foto');
             $table->integer('suara')->default(0);

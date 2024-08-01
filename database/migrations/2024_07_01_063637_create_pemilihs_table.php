@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('nama');
             $table->bigInteger('nis')->unique();
             $table->string('kelas');
-            $table->string('jurusan');
+            // $table->string('jurusan')
             $table->string('password');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *

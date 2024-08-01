@@ -53,10 +53,7 @@
                     <div class="welcome text-center mt-5">
                         <div class="col mb-5">
                             <h1>Terima Kasih telah Berpartisipasi</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Tenetur corporis magni nesciunt recusandae maiores culpa repellendus ex 
-                                id provident. Numquam aliquam quae commodi iste ut dolorum velit pariatur 
-                                atque praesentium!
+                            <p>Partisipasi anda berpengaruh dalam menentukan masa depan sekolah
                             </p>
                         </div>
                     </div>

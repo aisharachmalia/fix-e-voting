@@ -16,27 +16,24 @@ class UservotingController extends Controller
 
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $id = null)
     {
         $kandidat = Kandidat::all();
-        // $pemilih = Pemilih::findOrFail($request->session()->get('pemilih_id'));
         $pemilih = $request->attributes->get('pemilih');
 
-        // Mendapatkan data kandidat dengan jumlah suara
-        // Mendapatkan data kandidat dengan hanya field yang diperlukan
-        // Mendapatkan data kandidat dengan hanya field yang diperlukan
         $kandidatData = Kandidat::select('no_urut', 'suara')->get();
-
-// Total suara
         $totalSuara = $kandidatData->sum('suara');
-
-// Menyiapkan data untuk Chart.js
         $labels = $kandidatData->pluck('no_urut')->toArray();
         $hasil = $kandidatData->pluck('suara')->toArray();
 
-        return view('uservoting.index', compact('kandidat', 'pemilih', 'labels', 'hasil'));
+        $selectedKandidat = null;
+        if ($id) {
+            $selectedKandidat = Kandidat::find($id);
+        }
 
+        return view('uservoting.index', compact('kandidat', 'pemilih', 'labels', 'hasil', 'selectedKandidat'));
     }
+
 
     public function show($id)
     {

@@ -1,63 +1,44 @@
-<!-- Navbar Header -->
-<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
-    <div class="container-fluid">
-        <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
-        </nav>
-
-        <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-            <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false" aria-haspopup="true">
-                    <i class="fa fa-search"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-search animated fadeIn">
-                    <form class="navbar-left navbar-form nav-search">
-                        <div class="input-group">
-                            <input type="text" placeholder="Search ..." class="form-control" />
-                        </div>
-                    </form>
-                </ul>
-            </li>
-
-            <li class="nav-item topbar-user dropdown hidden-caret">
-                <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
-                    <div class="avatar-sm">
-                        <img src="{{ asset('backend/assets/img/profile.jpg') }}" alt="..."
-                            class="avatar-img rounded-circle" />
-                    </div>
-                    <span class="profile-username">
-                        <span class="op-7">Hi,</span>
-                        <span class="fw-bold">{{ Auth::user()->name }}</span>
-                    </span>
-                </a>
-                <ul class="dropdown-menu dropdown-user animated fadeIn">
-                    <div class="dropdown-user-scroll scrollbar-outer">
-                        <li>
-                            <div class="user-box">
-                                <div class="avatar-lg">
-                                    <img src="{{ asset('backend/assets/img/profile.jpg') }}" alt="image profile"
-                                        class="avatar-img rounded" />
-                                </div>
-                                <div class="u-text">
-                                    <h4>{{ Auth::user()->name }}</h4>
-                                    <p class="text-muted">{{ Auth::user()->email }}</p>
+<header class="nxl-header">
+    <div class="header-wrapper">
+        <!--! [Start] Header Left !-->
+        <!--! [End] Header Left !-->
+        <!--! [Start] Header Right !-->
+        <div class="header-right ms-auto">
+            <div class="d-flex align-items-center">
+         
+                <div class="dropdown nxl-h-item">
+                    <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
+                        <img src="{{asset('assets/images/avatar/2.png')}}" alt="user-image" class="img-fluid user-avtar me-0" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
+                        <div class="dropdown-header">
+                            <div class="d-flex align-items-center">
+                                <img src="{{asset('assets/images/avatar/2.png')}}" alt="user-image" class="img-fluid user-avtar" />
+                                <div>
+                                    <h6 class="text-dark mb-0">{{Auth::user()->name}} <span class="badge bg-soft-success text-success ms-1"></span></h6>
+                                    {{-- <span class="fs-12 fw-medium text-muted">alex.della@outlook.com</span> --}}
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                
-                                Logout
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
+                        </div>
+                        {{-- <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div> --}}
+                        <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();"class="dropdown-item">
+                        <i class="feather-log-out">
+                         {{ __('Logout') }}>
+                        </i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
-                </ul>
-            </li>
-        </ul>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <!--! [End] Header Right !-->
     </div>
-</nav>
+</header>

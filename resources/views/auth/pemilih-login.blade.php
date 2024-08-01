@@ -19,12 +19,12 @@
   <div class="container">
     <div class="card border-light-subtle shadow-sm">
       <div class="row g-0">
-        <div class="col-12 col-md-6 text-bg-primary">
+        <div class="col-12 col-md-6">
           <div class="d-flex align-items-center justify-content-center h-100">
             <div class="col-10 col-xl-8 py-3">
               <img class="img-fluid rounded mb-4" loading="lazy" src="{{asset('img/logo-custom__1_-removebg-preview.png')}}" width="245" height="80" alt="BootstrapBrain Logo">
               <hr class="border-primary-subtle mb-4">
-              <h2 class="h1 mb-4">E-Pilketos</h2>
+              <h2 class="h1 mb-4">E-Voting</h2>
               <p class="lead m-0">Website Pemilihan Ketua OSIS</p>
             </div>
           </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-12">
                 <label class="form-check-label text-secondary" for="remember_me">
-                  <i>*data login diberikan oleh admin e-pilketos</i>
+                  <i>data login di berikan oleh admin</i>
                 </label>
                 </div>
                 <div class="col-12">

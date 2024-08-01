@@ -1,100 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
+@section('content')
 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Detail Data Kandidat</title>
-    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="{{ asset('backend/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
-
-    <!-- Fonts and icons -->
-    <script src="{{ asset('backend/assets/js/plugin/webfont/webfont.min.js') }}"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ["Public Sans:300,400,500,600,700"]
-            },
-            custom: {
-                families: [
-                    "Font Awesome 5 Solid",
-                    "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands",
-                    "simple-line-icons",
-                ],
-                urls: ["{{ asset('backend/assets/css/fonts.min.css') }}"],
-            },
-            active: function() {
-                sessionStorage.fonts = true;
-            },
-        });
-    </script>
-
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/plugins.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/kaiadmin.min.css') }}" />
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
-</head>
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        @include('include.backend.sidebar')
-        <!-- End Sidebar -->
+<div class="wrapper">
 
         <div class="main-panel">
-            <div class="main-header">
-                <div class="main-header-logo">
-                    <!-- Logo Header -->
-                    <div class="logo-header" data-background-color="dark">
-                        <a href="../index.html" class="logo">
-                            <img src="../assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
-                        </a>
-                        <div class="nav-toggle">
-                            <button class="btn btn-toggle toggle-sidebar">
-                                <i class="gg-menu-right"></i>
-                            </button>
-                            <button class="btn btn-toggle sidenav-toggler">
-                                <i class="gg-menu-left"></i>
-                            </button>
-                        </div>
-                        <button class="topbar-toggler more">
-                            <i class="gg-more-vertical-alt"></i>
-                        </button>
-                    </div>
-                    <!-- End Logo Header -->
-                </div>
-                <!-- Navbar Header -->
-                @include('include.backend.header')
-                <!-- End Navbar -->
-            </div>
+
 
             <div class="container">
                 <div class="page-inner">
-                    <div class="page-header">
-                        <h3 class="fw-bold mb-3">Kandidat</h3>
-                        <ul class="breadcrumbs mb-3">
-                            <li class="nav-home">
-                                <a href="{{ url('/admin') }}">
-                                    <i class="icon-home"></i>
-                                </a>
-                            </li>
-                            <li class="separator">
-                                <i class="icon-arrow-right"></i>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('kandidat.index') }}">Kandidat</a>
-                            </li>
-                            <li class="separator">
-                                <i class="icon-arrow-right"></i>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#">Detail data</a>
-                            </li>
-                        </ul>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -114,44 +28,43 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="no_urut">No. Urut</label>
-                                                    <input type="number" class="form-control" name="no_urut" 
+                                                    <input type="number" class="form-control" name="no_urut"
                                                     value="{{$kandidat->no_urut}}" disabled/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama_ketua">Nama ketua</label>
-                                                    <input type="text" class="form-control" name="nama_ketua" 
+                                                    <input type="text" class="form-control" name="nama_ketua"
                                                     value="{{$kandidat->nama_ketua}}" disabled/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nama_wakil">Nama wakil</label>
-                                                    <input type="text" class="form-control" name="nama_wakil" 
+                                                    <input type="text" class="form-control" name="nama_wakil"
                                                      value="{{$kandidat->nama_wakil}}" disabled/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="kelas">Kelas</label>
-                                                    <input type="text" class="form-control" name="kelas" 
+                                                    <input type="text" class="form-control" name="kelas"
                                                      value="{{$kandidat->kelas}}" disabled/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="visi">Visi</label>
-                                                    <textarea class="form-control" name="visi"  disabled>
-                                                        {{$kandidat->visi}}
-                                                </textarea>
+                                                    <input type="text" class="form-control" name="visi" value="{{$kandidat->visi}}" disabled>
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="misi">Misi</label>
-                                                    <textarea class="form-control" name="misi" disabled>
-                                                        {{$kandidat->misi}}
-                                                </textarea>
+                                                    <input type="text" class="form-control" name="misi" value="{{$kandidat->misi}}" disabled>
+
+
                                                 </div>
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <label for="jurusan">Jurusan</label>
-                                                    <input type="text" class="form-control" name="jurusan" 
+                                                    <input type="text" class="form-control" name="jurusan"
                                                     value="{{$kandidat->jurusan}}" disabled/>
-                                                </div>
+                                                </div> --}}
                                                 <div class="form-group">
                                                     <label for="tahun_ajaran">Tahun Ajaran</label>
-                                                    <input type="text" class="form-control" name="tahun_ajaran" 
+                                                    <input type="text" class="form-control" name="tahun_ajaran"
                                                     value="{{$kandidat->tahun_ajaran}}" disabled/>
                                                 </div>
                                             </div>
@@ -160,12 +73,16 @@
                                                     <label for="exampleFormControlFile1">Foto</label><br>
                                                     <img src="{{ asset('/images/kandidat/' . $kandidat->foto) }}"
                                                          width="500px">
+                                                         <div class="card-action btn-sm d-flex justify-content-end">
+                                                            <a href="{{ url('admin/kandidat') }}" class="btn btn-danger">Kembali</a>
+                                                            <form>
+                                                        </div>
                                                 </div>
-                                                <div class="card-action">
+                                                {{-- <div class="card-action btn-sm d-flex justify-content-end">
                                                     <a href="{{ url('admin/kandidat') }}" class="btn btn-danger">Kembali</a>
                                                     <form>
-                                                </div>
-                        
+                                                </div> --}}
+
                                             </div>
                                         </div>
                                 </div>
@@ -175,48 +92,9 @@
                 </div>
             </div>
 
-            @include('include.backend.footer')
+
         </div>
 
-        < </div>
-            <!--   Core JS Files   -->
-            <script src="{{ asset('backend/assets/js/core/jquery-3.7.1.min.js') }}"></script>
-            <script src="{{ asset('backend/assets/js/core/popper.min.js') }}"></script>
-            <script src="{{ asset('backend/assets/js/core/bootstrap.min.js') }}"></script>
+        </div>
 
-            <!-- jQuery Scrollbar -->
-            <script src="{{ asset('backend/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
-
-            <!-- Chart JS -->
-            <script src="{{ asset('backend/assets/js/plugin/chart.js/chart.min.js') }}"></script>
-
-            <!-- jQuery Sparkline -->
-            <script src="{{ asset('backend/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
-
-            <!-- Chart Circle -->
-            <script src="{{ asset('backend/assets/js/plugin/chart-circle/circles.min.js') }}"></script>
-
-            <!-- Datatables -->
-            <script src="{{ asset('backend/assets/js/plugin/datatables/datatables.min.js') }}"></script>
-
-            <!-- Bootstrap Notify -->
-            <script src="{{ asset('backend/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-
-            <!-- jQuery Vector Maps -->
-            <script src="{{ asset('backend/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script>
-            <script src="{{ asset('backend/assets/js/plugin/jsvectormap/world.js') }}"></script>
-
-            <!-- Google Maps Plugin -->
-            <script src="{{ asset('backend/assets/js/plugin/gmaps/gmaps.js') }}"></script>
-
-            <!-- Sweet Alert -->
-            <script src="{{ asset('backend/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
-
-            <!-- Kaiadmin JS -->
-            <script src="{{ asset('backend/assets/js/kaiadmin.min.js') }}"></script>
-
-            <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-            <script src="{{ asset('backend/assets/js/setting-demo2.js') }}"></script>
-</body>
-
-</html>
+        @endsection
